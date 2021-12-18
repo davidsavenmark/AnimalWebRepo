@@ -1,5 +1,5 @@
 # AnimalWebRepo
-// Labb from my Backend C# course in IT-Högskolan. Change branch to Master for files.
+// Labb from my Backend C# course in IT-Högskolan. Change branch to Master2 for the project files.
 
 Made by David Sävenmark.
 
