@@ -3,7 +3,6 @@
 ![GETdog](https://user-images.githubusercontent.com/71319396/146656340-89bbaa4c-aed1-4218-866a-e42c1fae14fb.png)
 ![POSTtoad](https://user-images.githubusercontent.com/71319396/146656503-6fb1360e-affd-4946-be6f-e4b6b655c721.png)
 ![PUTChangeRavenToEagle](https://user-images.githubusercontent.com/71319396/146656487-d3309841-5243-408f-98ef-866438e57e27.png)
-![GETnowWithEagle](https://user-images.githubusercontent.com/71319396/146656508-cb34ae8c-a355-402e-be68-c489cebab6e2.png)
 ![DELETEtoad](https://user-images.githubusercontent.com/71319396/146656539-05622caa-e895-486f-a8da-a7cc694af3af.png)
 
 
