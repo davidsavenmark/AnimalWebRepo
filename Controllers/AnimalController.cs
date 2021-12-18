@@ -38,7 +38,7 @@ namespace AnimalCollection.Controllers
             return Ok(animals);
         }
 
-        //GET/api/vinyl/:id
+       
         [HttpGet("api/animal/{id}")]
 
         public IActionResult GetAnimalByID(int id)
