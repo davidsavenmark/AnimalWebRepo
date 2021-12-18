@@ -1,4 +1,6 @@
 # AnimalWebRepo
+// Labb from my Backend C# course in IT-Högskolan. 
+
 //GET Animals
 ![GET](https://user-images.githubusercontent.com/71319396/146656290-27b37199-408e-4d3f-b6e6-0820f1667975.png)
 //Get Dog
