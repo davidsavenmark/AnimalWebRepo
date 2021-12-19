@@ -8,7 +8,7 @@ namespace AnimalCollection.Entities
         DbSet<Animal> Animals { get; set; }
 
 
-        private string _connectionString = "server=localhost; database=AnimalCollection; user=root; password=simpaticus12341";
+        private string _connectionString = "server=localhost; database=AnimalCollection; user=root; password=xxxxxx";
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
