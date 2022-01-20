@@ -50,7 +50,7 @@ namespace AnimalCollection.Controllers
         }
 
         [HttpPost("api/animals")]
-        public IActionResult CreateVinyl([FromBody] CreateAnimalDTO createAnimalDTO)
+        public IActionResult CreateAnimal([FromBody] CreateAnimalDTO createAnimalDTO)
         {
             Animal createdAnimal = _repo.CreateAnimal(createAnimalDTO);
             //VinylDTO vinylDTO = createdVinyl.MapToVinylDTO();
