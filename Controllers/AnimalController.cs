@@ -17,11 +17,9 @@ namespace AnimalCollection.Controllers
         {
             _repo = repo;
         }
-
         
         [HttpGet]
         [Route("api/animals")]
-
         public IActionResult GetAnimals()
         {
             var animals = _repo.
@@ -30,22 +28,17 @@ namespace AnimalCollection.Controllers
                 .MapToAnimalDTOs();
                 return Ok(animals);
         }
-
-        //GET/api/vinyl/:id
+        
         [HttpGet("api/animals/{id}")]
-
         public IActionResult GetAnimalByID(int id)
         {
 
             Animal animal = _repo.GetByID(id);
             if (animal == null)
             {
-                return NotFound("Could not find vinyl with ID " + id);
-
-               
+                return NotFound("Could not find vinyl with ID " + id);          
             }
             AnimalDTO animalDTO = MapToAnimalDTOs(animal);
-
             return Ok(animalDTO);
         }
 
@@ -73,7 +66,6 @@ namespace AnimalCollection.Controllers
 
             AnimalDTO animalDTO = _repo.GetByID(id).MapToAnimalDTO();
               
-
             return Ok(animalDTO);
         }
 
@@ -84,7 +76,6 @@ namespace AnimalCollection.Controllers
             return NoContent();
         }
 
-
         public AnimalDTO MapToAnimalDTOs(Animal animal)
         {
             return new AnimalDTO
@@ -92,13 +83,7 @@ namespace AnimalCollection.Controllers
                 ID = animal.ID,
                 Name = animal.Name,
                 AnimalType = animal.AnimalType.MapToAnimalTypeDTO(),
-
-
             };
         }
-
-
-
-
     }
 }
