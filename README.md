@@ -1,5 +1,5 @@
 # AnimalWebRepo
-// Labb from my Backend C# course in IT-Högskolan. Change branch to master for the project files. Change to branch with_database for the database version.
+// Labb from my Backend C# course in IT-Högskolan. Change branch to 'master' for the project files. Change branch to 'with_database' for the database version.
 
 Made by David Sävenmark.
 
