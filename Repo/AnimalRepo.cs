@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using AnimalCollection.DTOs;
 using AnimalCollection.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AnimalCollection.Repo
 {
     public class AnimalRepo : IAnimalRepo
     {
 
+        private ApplicationContext _context;
+        //private ApplicationContext _db;
 
-        private List<Animal> _animals;
-        private Animal animal;
-
-
-        public AnimalRepo()
+        public AnimalRepo(ApplicationContext context)
         {
-            _animals = PopulateAnimalData();
+            _context = context;
 
         }
-
 
 
 
@@ -30,11 +28,12 @@ namespace AnimalCollection.Repo
 
             animal.Name = createdAnimalDTO.Name;
 
-            animal.Type = createdAnimalDTO.Type;
+            animal.AnimalTypeID = createdAnimalDTO.AnimalTypeID;
 
-            animal.Id = _animals.Max(x => x.Id) + 1;
 
-            _animals.Add(animal);
+            _context.Animals.Add(animal);
+            _context.SaveChanges();
+
             return animal;
 
         }
@@ -43,84 +42,41 @@ namespace AnimalCollection.Repo
 
         public List<Animal> GetAll()
         {
-            return _animals;
+            return _context
+                   .Animals
+                   .Include(v => v.AnimalType)
+                   .ToList();
         }
 
         public Animal GetByID(int id)
         {
-            Animal animal = _animals.Find(x => x.Id == id);
+            Animal animal = _context
+                 .Animals
+                 .Include(v => v.AnimalType)
+                 .SingleOrDefault(x => x.ID == id);
             return animal;
         }
 
-        public Animal UpdateAnimal(Animal animal)
+        public Animal UpdateAnimal(Animal animal, int id)
         {
-            Animal existingAnimal = _animals.FirstOrDefault(x => x.Id == animal.Id);
+            Animal existingAnimal = _context.Animals.FirstOrDefault(x => x.ID == animal.ID);
             if (existingAnimal != null)
             {
                 existingAnimal.Name = animal.Name;
-                existingAnimal.Type = animal.Type;
+                existingAnimal.AnimalType = animal.AnimalType;
             }
+
+            _context.SaveChanges();
             return existingAnimal;
 
         }
 
         public void DeleteAnimal(int id)
         {
-            _animals.Remove(GetByID(id));
+            _context.Animals.Remove(GetByID(id));
+            _context.SaveChanges();
         }
 
-        private List<Animal> PopulateAnimalData()
-        {
-            return
-
-            new List<Animal>
-            {
-
-                new Animal
-                {
-                    Id = 1,
-                    Name= "Dog",
-                    Type="Mammal",
-                },
-
-                new Animal
-                {
-                    Id = 2,
-                    Name= "Raven",
-                    Type="Bird",
-                },
-
-                new Animal
-                {
-                    Id = 3,
-                    Name= "Cat",
-                    Type="Mammal",
-                },
-
-                new Animal
-                {
-                    Id = 4,
-                    Name= "Bearded Dragon",
-                    Type="Reptile",
-                },
-
-                new Animal
-                {
-                    Id = 5,
-                    Name= "Frog",
-                    Type="Amphibian",
-                },
-
-                new Animal
-                {
-                    Id = 6,
-                    Name= "Salmon",
-                    Type="Fish",
-                },
-            };
-
-        }
-
-
+       
     }   
 }

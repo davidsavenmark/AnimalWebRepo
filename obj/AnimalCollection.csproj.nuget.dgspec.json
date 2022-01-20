@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/davidau20/Projects/AnimalCollection/AnimalCollection/AnimalCollection.csproj": {}
+    "/Users/davidau20/Projects/AnimalCollection/AnimalCollection.csproj": {}
   },
   "projects": {
-    "/Users/davidau20/Projects/AnimalCollection/AnimalCollection/AnimalCollection.csproj": {
+    "/Users/davidau20/Projects/AnimalCollection/AnimalCollection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/davidau20/Projects/AnimalCollection/AnimalCollection/AnimalCollection.csproj",
+        "projectUniqueName": "/Users/davidau20/Projects/AnimalCollection/AnimalCollection.csproj",
         "projectName": "AnimalCollection",
-        "projectPath": "/Users/davidau20/Projects/AnimalCollection/AnimalCollection/AnimalCollection.csproj",
+        "projectPath": "/Users/davidau20/Projects/AnimalCollection/AnimalCollection.csproj",
         "packagesPath": "/Users/davidau20/.nuget/packages/",
-        "outputPath": "/Users/davidau20/Projects/AnimalCollection/AnimalCollection/obj/",
+        "outputPath": "/Users/davidau20/Projects/AnimalCollection/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/davidau20/.config/NuGet/NuGet.Config"
@@ -37,6 +37,44 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Bcl.AsyncInterfaces": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.10, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

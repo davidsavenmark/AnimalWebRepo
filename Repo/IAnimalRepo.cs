@@ -8,15 +8,13 @@ namespace AnimalCollection.Repo
     public interface IAnimalRepo
     {
 
-
         List<Animal> GetAll();
 
         Animal GetByID(int id);
 
-
         Animal CreateAnimal(CreateAnimalDTO animal);
 
-        Animal UpdateAnimal(Animal animal);
+        Animal UpdateAnimal(Animal animal, int id);
 
         void DeleteAnimal(int id);
 

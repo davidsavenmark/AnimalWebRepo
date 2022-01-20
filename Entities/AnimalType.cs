@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using AnimalCollection.DTOs;
 
 namespace AnimalCollection.Entities
 {
-    public class Animal
+    public class AnimalType
     {
         [Key]
         public int ID { get; set; }
@@ -12,10 +13,7 @@ namespace AnimalCollection.Entities
         [Required]
         public string Name { get; set; }
 
-        [ForeignKey("AnimalType")]
+        public List<Animal> Animals { get; set; }
 
-        public int AnimalTypeID { get; set; }
-
-        public AnimalType AnimalType { get; set; }
     }
 }

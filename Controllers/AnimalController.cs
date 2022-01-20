@@ -20,64 +20,64 @@ namespace AnimalCollection.Controllers
 
         
         [HttpGet]
-        [Route("api/animal")]
+        [Route("api/animals")]
 
         public IActionResult GetAnimals()
         {
             var animals = _repo.
                  GetAll()
-                .Select(a => new AnimalDTO
-                {
-                    Id = a.Id,
-                    Name = a.Name,
-                    Type = a.Type,
-               
-                })
-                .OrderBy(x => x.Id)
-                ;
-            return Ok(animals);
+                .ToList()
+                .MapToAnimalDTOs();
+                return Ok(animals);
         }
 
         //GET/api/vinyl/:id
-        [HttpGet("api/animal/{id}")]
+        [HttpGet("api/animals/{id}")]
 
         public IActionResult GetAnimalByID(int id)
         {
 
             Animal animal = _repo.GetByID(id);
-            if (animal is null)
+            if (animal == null)
             {
                 return NotFound("Could not find vinyl with ID " + id);
 
-
+               
             }
-            AnimalDTO animalDTO = MapAnimalToAnimalDTO(animal);
+            AnimalDTO animalDTO = MapToAnimalDTOs(animal);
 
             return Ok(animalDTO);
         }
 
-
-        [HttpPost("api/animal")]
-        public IActionResult CreateAnimal([FromBody] CreateAnimalDTO createAnimalDTO)
+        [HttpPost("api/animals")]
+        public IActionResult CreateVinyl([FromBody] CreateAnimalDTO createAnimalDTO)
         {
             Animal createdAnimal = _repo.CreateAnimal(createAnimalDTO);
-            AnimalDTO animalDTO = MapAnimalToAnimalDTO(createdAnimal);
+            //VinylDTO vinylDTO = createdVinyl.MapToVinylDTO();
 
-            return CreatedAtAction(nameof(GetAnimalByID),
-            new { id = animalDTO.Id },
-            createdAnimal);
+            AnimalDTO animalSavedDTO = _repo
+                .GetByID(createdAnimal.ID)
+                .MapToAnimalDTO();
+
+            return CreatedAtAction(
+                nameof(GetAnimalByID),
+                new { id = animalSavedDTO.ID },
+                animalSavedDTO);
 
         }
 
-        [HttpPut("api/animal/{id}")]
-        public IActionResult UpdateVinyl([FromBody] Animal animal)
+        [HttpPut("api/animals/{id}")]
+        public IActionResult UpdateAnimal([FromBody] Animal animal, int id)
         {
-            Animal updatedAnimal = _repo.UpdateAnimal(animal);
-            AnimalDTO animalDTO = MapAnimalToAnimalDTO(updatedAnimal);
+            Animal updatedAnimal = _repo.UpdateAnimal(animal, id);
+
+            AnimalDTO animalDTO = _repo.GetByID(id).MapToAnimalDTO();
+              
+
             return Ok(animalDTO);
         }
 
-        [HttpDelete("api/animal/{id}")]
+        [HttpDelete("api/animals/{id}")]
         public IActionResult DeleteAnimal(int id)
         {
             _repo.DeleteAnimal(id);
@@ -85,16 +85,19 @@ namespace AnimalCollection.Controllers
         }
 
 
-        private AnimalDTO MapAnimalToAnimalDTO(Animal animal)
+        public AnimalDTO MapToAnimalDTOs(Animal animal)
         {
             return new AnimalDTO
             {
-                Id = animal.Id,
+                ID = animal.ID,
                 Name = animal.Name,
-                Type = animal.Type
+                AnimalType = animal.AnimalType.MapToAnimalTypeDTO(),
+
 
             };
         }
+
+
 
 
     }

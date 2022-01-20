@@ -3,10 +3,8 @@ namespace AnimalCollection.DTOs
 {
     public class CreateAnimalDTO
     {
-        public int Id { get; set; }
-
+        public int AnimalTypeID { get; set; }
         public string Name { get; set; }
-
-        public string Type { get; set; }
+        
     }
 }

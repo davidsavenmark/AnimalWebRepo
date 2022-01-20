@@ -21,6 +21,8 @@ namespace AnimalCollection
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
+
                 });
     }
 }
