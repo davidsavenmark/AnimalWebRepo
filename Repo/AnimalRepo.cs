@@ -32,7 +32,6 @@ namespace AnimalCollection.Repo
             _context.SaveChanges();
 
             return animal;
-
         }
 
         public List<Animal> GetAll()
@@ -63,7 +62,6 @@ namespace AnimalCollection.Repo
 
             _context.SaveChanges();
             return existingAnimal;
-
         }
 
         public void DeleteAnimal(int id)
