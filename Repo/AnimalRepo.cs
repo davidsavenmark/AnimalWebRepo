@@ -9,7 +9,6 @@ namespace AnimalCollection.Repo
 {
     public class AnimalRepo : IAnimalRepo
     {
-
         private ApplicationContext _context;
         //private ApplicationContext _db;
 
@@ -18,8 +17,6 @@ namespace AnimalCollection.Repo
             _context = context;
 
         }
-
-
 
         public Animal CreateAnimal(CreateAnimalDTO createdAnimalDTO)
         {
@@ -37,8 +34,6 @@ namespace AnimalCollection.Repo
             return animal;
 
         }
-
-       
 
         public List<Animal> GetAll()
         {
@@ -76,7 +71,5 @@ namespace AnimalCollection.Repo
             _context.Animals.Remove(GetByID(id));
             _context.SaveChanges();
         }
-
-       
     }   
 }
