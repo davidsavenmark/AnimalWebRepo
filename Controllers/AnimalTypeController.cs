@@ -9,7 +9,6 @@ namespace AnimalCollection.Controllers
 {
     public class AnimalTypeController : Microsoft.AspNetCore.Mvc.ControllerBase
     {
-
         private readonly IAnimalTypeRepo _repo;
 
         public AnimalTypeController(IAnimalTypeRepo repo)
@@ -19,8 +18,6 @@ namespace AnimalCollection.Controllers
 
         //Get/api/animaltypes
         [HttpGet("api/animaltypes")]
-
-
         public IActionResult GetAnimalType()
         {
             var animalTypes = _repo.
@@ -37,7 +34,6 @@ namespace AnimalCollection.Controllers
 
         //GET/api/artist/id
         [HttpGet("api/animaltypes/{id}")]
-
         public IActionResult GetAnimalTypeByID(int id)
         {
 
@@ -45,11 +41,8 @@ namespace AnimalCollection.Controllers
             if (animalType is null)
             {
                 return NotFound("Could not find animaltype with ID " + id);
-
-
             }
             AnimalTypeDTO animalTypeDTO = MapAnimalTypeToAnimalTypeDTO(animalType);
-
             return Ok(animalTypeDTO);
         }
 
@@ -63,9 +56,7 @@ namespace AnimalCollection.Controllers
             return CreatedAtAction(nameof(GetAnimalTypeByID),
             new { id = animalTypeDTO.ID },
             animalTypeDTO);
-
         }
-
 
         [HttpPut("api/animaltypes/{id}")]
         public IActionResult UpdateArtist([FromBody] AnimalType animalType)
@@ -82,21 +73,13 @@ namespace AnimalCollection.Controllers
             return NoContent();
         }
 
-
-
         private AnimalTypeDTO MapAnimalTypeToAnimalTypeDTO(AnimalType animalType)
         {
             return new AnimalTypeDTO
             {
-
                 ID = animalType.ID,
                 Name = animalType.Name,
-                
-
-
             };
         }
-
-
     }
 }
