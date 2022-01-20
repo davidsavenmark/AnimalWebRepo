@@ -1,5 +1,5 @@
 # AnimalWebRepo
-Labb from my Backend C# course in IT-Högskolan.
+Second Labb from my Backend C# course in IT-Högskolan.
 
 
 ![Skärmavbild 2022-01-20 kl  13 40 40](https://user-images.githubusercontent.com/71319396/150343281-6c36f352-1182-4ea1-baf3-c85ab7218a34.png)
